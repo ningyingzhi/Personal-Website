@@ -35,7 +35,10 @@
             line-height: 1.5;
             margin: 0;
             padding: var(--spacing);
+            
+            /* Default Max Width (Desktop) */
             max-width: 1200px; 
+            
             margin-left: auto;
             margin-right: auto;
         }
@@ -233,7 +236,7 @@
         .vertical-wrapper {
             overflow: hidden;
             cursor: zoom-in;
-            margin-bottom: 20px; /* Spacing between vertical images */
+            margin-bottom: 20px; 
         }
 
         .vertical-wrapper img {
@@ -246,7 +249,6 @@
         .vertical-wrapper:hover img {
             transform: scale(1.05);
         }
-
 
         /* --- UTILITIES --- */
         .sub-section { display: none; }
@@ -291,6 +293,72 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVE VIEW (IPHONE / ANDROID)
+           ========================================= */
+        @media screen and (max-width: 768px) {
+            
+            body {
+                padding: 15px; /* Less padding on phone */
+            }
+
+            /* Header: Keep it simple */
+            header {
+                margin-bottom: 40px;
+            }
+
+            /* Info Page: Stack vertically */
+            .info-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+            }
+            
+            /* Make seal smaller on phone so it fits */
+            .seal-image {
+                flex: none;
+                width: 150px;
+            }
+
+            /* Project Detail: Stack Menu and Images */
+            .project-center-group {
+                flex-direction: column-reverse; /* Puts the Menu ON TOP of the images */
+                gap: 20px;
+            }
+
+            /* Menu Styling for Mobile */
+            .project-menu-wrapper {
+                position: relative;
+                top: 0;
+                transform: none;
+                width: 100%;
+                justify-content: flex-start; /* Left align on mobile */
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+            }
+
+            .project-sub-nav {
+                align-items: flex-start; /* Left align text */
+                gap: 10px;
+            }
+
+            /* Images: 1 Column Grid on Phone for size */
+            .image-grid {
+                grid-template-columns: 1fr; 
+            }
+
+            /* Project List: Allow wrapping if titles are long */
+            .project-link {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .project-link span.year {
+                font-size: 14px;
+                color: #666;
+            }
         }
 
     </style>
@@ -457,13 +525,13 @@
                 <img src="Screenshot 2025-11-21 at 11.19.01 PM.png" onclick="openLightbox(this.src)" alt="Hebei Design Draft 4">
             </div>
 
+            <div class="caption">
+                <p><strong>Fig 1-4.</strong> Design Drafts and Renderings.</p>
+            </div>
+
             <div class="vertical-wrapper">
                 <img src="Screenshot 2025-11-21 at 11.19.15 PM.png" onclick="openLightbox(this.src)" alt="Hebei Actual Photo">
             </div>
-
-            <div class="caption">
-                <p><strong>Fig 1-4.</strong> Design Drafts and Renderings.</p>
-    
 
             <div class="caption">
                 <p><strong>Fig 5.</strong> Installation views at Hebei Museum.</p>
