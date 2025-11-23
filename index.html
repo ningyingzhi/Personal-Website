@@ -35,10 +35,7 @@
             line-height: 1.5;
             margin: 0;
             padding: var(--spacing);
-            
-            /* Default Max Width (Desktop) */
             max-width: 1200px; 
-            
             margin-left: auto;
             margin-right: auto;
         }
@@ -175,10 +172,14 @@
 
         /* --- SUB-NAVIGATION --- */
         .project-sub-nav {
-            display: flex;
+            display: none; 
             flex-direction: column;
             align-items: flex-end; 
             gap: 15px;
+        }
+        
+        .project-sub-nav.visible {
+            display: flex;
         }
 
         .sub-nav-btn {
@@ -204,7 +205,7 @@
             border-bottom: 1px solid #000;
         }
 
-        /* --- IMAGE STYLES: GRID (For She Swims) --- */
+        /* --- IMAGE STYLES: GRID --- */
         .image-grid {
             display: grid;
             grid-template-columns: 1fr 1fr; 
@@ -232,7 +233,7 @@
             transform: scale(1.05); 
         }
 
-        /* --- IMAGE STYLES: VERTICAL STACK (For Hebei) --- */
+        /* --- VERTICAL STACK --- */
         .vertical-wrapper {
             overflow: hidden;
             cursor: zoom-in;
@@ -268,7 +269,7 @@
             font-size: 12px;
         }
 
-        /* --- LIGHTBOX OVERLAY --- */
+        /* --- LIGHTBOX --- */
         #lightbox {
             display: none; 
             position: fixed;
@@ -295,70 +296,18 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* =========================================
-           MOBILE RESPONSIVE VIEW (IPHONE / ANDROID)
-           ========================================= */
+        /* --- MOBILE RESPONSIVE --- */
         @media screen and (max-width: 768px) {
-            
-            body {
-                padding: 15px; /* Less padding on phone */
-            }
-
-            /* Header: Keep it simple */
-            header {
-                margin-bottom: 40px;
-            }
-
-            /* Info Page: Stack vertically */
-            .info-container {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 30px;
-            }
-            
-            /* Make seal smaller on phone so it fits */
-            .seal-image {
-                flex: none;
-                width: 150px;
-            }
-
-            /* Project Detail: Stack Menu and Images */
-            .project-center-group {
-                flex-direction: column-reverse; /* Puts the Menu ON TOP of the images */
-                gap: 20px;
-            }
-
-            /* Menu Styling for Mobile */
-            .project-menu-wrapper {
-                position: relative;
-                top: 0;
-                transform: none;
-                width: 100%;
-                justify-content: flex-start; /* Left align on mobile */
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 15px;
-                margin-bottom: 15px;
-            }
-
-            .project-sub-nav {
-                align-items: flex-start; /* Left align text */
-                gap: 10px;
-            }
-
-            /* Images: 1 Column Grid on Phone for size */
-            .image-grid {
-                grid-template-columns: 1fr; 
-            }
-
-            /* Project List: Allow wrapping if titles are long */
-            .project-link {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .project-link span.year {
-                font-size: 14px;
-                color: #666;
-            }
+            body { padding: 15px; }
+            header { margin-bottom: 40px; }
+            .info-container { flex-direction: column; align-items: flex-start; gap: 30px; }
+            .seal-image { flex: none; width: 150px; }
+            .project-center-group { flex-direction: column-reverse; gap: 20px; }
+            .project-menu-wrapper { position: relative; top: 0; transform: none; width: 100%; justify-content: flex-start; border-bottom: 1px solid #ccc; padding-bottom: 15px; margin-bottom: 15px; }
+            .project-sub-nav { align-items: flex-start; gap: 10px; }
+            .image-grid { grid-template-columns: 1fr; }
+            .project-link { flex-direction: column; align-items: flex-start; }
+            .project-link span.year { font-size: 14px; color: #666; }
         }
 
     </style>
@@ -404,7 +353,7 @@
         <ul class="project-list">
             <li>
                 <a href="#" class="project-link" onclick="showSection('project1')">
-                    <span class="title">SHE SWIMS IN SILENCE</span>
+                    <span class="title">SHE SWIMS IN SILENCE - MIT</span>
                     <span class="year">2025</span>
                 </a>
             </li>
@@ -422,8 +371,14 @@
             </li>
             <li>
                 <a href="#" class="project-link" onclick="showSection('hebeiProject')">
-                    <span class="title">HEBEI MUSEUM PROJECT</span>
+                    <span class="title">Where Light Ferments, Time Resounds - HEBEI PROVINCIAL MUSEUM</span>
                     <span class="year">2023</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="project-link" onclick="showSection('pontusProject')">
+                    <span class="title">PONTUS' ECHO - TANK SHANGHAI</span>
+                    <span class="year">2024</span>
                 </a>
             </li>
         </ul>
@@ -433,11 +388,10 @@
         <div class="back-btn" onclick="showSection('home')">&larr; Back to Project Index</div>
         
         <div class="project-center-group">
-            
             <div class="project-media-content">
                 
                 <div id="exhibition" class="sub-section active-sub">
-                    <video width="100%" height="auto" controls style="margin-bottom: 20px;">
+                    <video width="100%" height="auto" controls muted playsinline loop style="margin-bottom: 20px;">
                       <source src="0bc3laa5aaab5yai7ojgfvufcwgd2bmaduaa.f10002.mp4" type="video/mp4">
                     </video>
 
@@ -445,15 +399,12 @@
                         <div class="img-wrapper">
                             <img src="a3e6044174943588bc1776341ae2ce2d.jpg" onclick="openLightbox(this.src)" alt="Exhibition 1">
                         </div>
-                        
                         <div class="img-wrapper">
                             <img src="8c901c88440e5322085861feb499df76.jpg" onclick="openLightbox(this.src)" alt="Exhibition 2">
                         </div>
-                        
                         <div class="img-wrapper">
                             <img src="05dfe653b61913f7087fdf8b2b024f38.jpg" onclick="openLightbox(this.src)" alt="Exhibition 3">
                         </div>
-                        
                         <div class="img-wrapper">
                             <img src="21fd9fd96503b2b1f88aa687965236b4.jpg" onclick="openLightbox(this.src)" alt="Exhibition 4">
                         </div>
@@ -484,7 +435,6 @@
                     <button class="sub-nav-btn" onclick="switchSubSection('process', this)">DESIGN PROCESS</button>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -511,74 +461,161 @@
     <section id="hebeiProject" class="project-detail">
         <div class="back-btn" onclick="showSection('home')">&larr; Back to Project Index</div>
         
-        <div style="max-width: 900px; margin: 0 auto;">
-            <div class="vertical-wrapper">
-                <img src="Screenshot 2025-11-21 at 11.17.59 PM.png" onclick="openLightbox(this.src)" alt="Hebei Design Draft 1">
-            </div>
-            <div class="vertical-wrapper">
-                <img src="Screenshot 2025-11-21 at 11.18.22 PM.png" onclick="openLightbox(this.src)" alt="Hebei Design Draft 2">
-            </div>
-            <div class="vertical-wrapper">
-                <img src="Screenshot 2025-11-21 at 11.18.48 PM.png" onclick="openLightbox(this.src)" alt="Hebei Design Draft 3">
-            </div>
-            <div class="vertical-wrapper">
-                <img src="Screenshot 2025-11-21 at 11.19.01 PM.png" onclick="openLightbox(this.src)" alt="Hebei Design Draft 4">
+        <div class="project-center-group">
+            <div class="project-media-content">
+                
+                <div id="hebei-exhibition" class="sub-section active-sub">
+                    <video width="100%" height="auto" controls muted playsinline loop style="margin-bottom: 20px;">
+                      <source src="0bc3gma2iaaboqada2mbtbufcm6duqzqdjaa.f10002.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="image-grid">
+                        <div class="img-wrapper">
+                            <img src="640.gif" onclick="openLightbox(this.src)" alt="Hebei Image 1">
+                        </div>
+                        <div class="img-wrapper">
+                            <img src="Screenshot 2025-11-22 at 9.57.45 PM.jpg" onclick="openLightbox(this.src)" alt="Hebei Image 2">
+                        </div>
+                        <div class="img-wrapper">
+                            <img src="Screenshot 2025-11-22 at 9.58.57 PM.jpg" onclick="openLightbox(this.src)" alt="Hebei Image 3">
+                        </div>
+                        <div class="img-wrapper">
+                            <img src="Screenshot 2025-11-22 at 9.59.17 PM.jpg" onclick="openLightbox(this.src)" alt="Hebei Image 4">
+                        </div>
+                    </div>
+                    <div class="caption">
+                        <p><strong>Fig 1-4.</strong> Installation views.</p>
+                    </div>
+                </div>
+
+                <div id="hebei-process" class="sub-section">
+                    <div class="caption">
+                        <p>Process documentation pending.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="caption">
-                <p><strong>Fig 1-4.</strong> Design Drafts and Renderings.</p>
+            <div class="project-menu-wrapper">
+                <div id="hebei-menu" class="project-sub-nav">
+                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('hebei-exhibition', this)">EXHIBITION PHOTOS</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('hebei-process', this)">DESIGN PROCESS</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pontusProject" class="project-detail">
+        <div class="back-btn" onclick="showSection('home')">&larr; Back to Project Index</div>
+        
+        <div class="project-center-group">
+            <div class="project-media-content">
+                
+                <div id="pontus-exhibition" class="sub-section active-sub">
+                    <video width="100%" height="auto" controls muted playsinline loop style="margin-bottom: 20px;">
+                      <source src="1750232769599081.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="image-grid">
+                        <div class="img-wrapper">
+                            <img src="Screenshot 2025-11-22 at 9.54.13 PM.jpg" onclick="openLightbox(this.src)" alt="Pontus 1">
+                        </div>
+                        <div class="img-wrapper">
+                            <img src="Screenshot 2025-11-22 at 9.55.05 PM.jpg" onclick="openLightbox(this.src)" alt="Pontus 2">
+                        </div>
+                    </div>
+                    
+                    <div class="caption">
+                        <p><strong>Fig 1-2.</strong> Installation views at TANK Shanghai.</p>
+                    </div>
+                </div>
+
+                <div id="pontus-process" class="sub-section">
+                    <div class="caption">
+                        <p>Process documentation pending.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="vertical-wrapper">
-                <img src="Screenshot 2025-11-21 at 11.19.15 PM.png" onclick="openLightbox(this.src)" alt="Hebei Actual Photo">
-            </div>
-
-            <div class="caption">
-                <p><strong>Fig 5.</strong> Installation views at Hebei Museum.</p>
+            <div class="project-menu-wrapper">
+                <div id="pontus-menu" class="project-sub-nav">
+                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('pontus-exhibition', this)">EXHIBITION PHOTOS</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('pontus-process', this)">DESIGN PROCESS</button>
+                </div>
             </div>
         </div>
     </section>
 
 
     <script>
-        // Navigation for Main Sections
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(sec => sec.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
+            
+            document.querySelectorAll('video').forEach(vid => {
+                vid.pause();
+            });
+
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
             window.scrollTo(0,0);
 
-            // Reset She Swims menu if navigating away
-            if (sectionId !== 'project1') {
-                document.querySelectorAll('#project1 .sub-section').forEach(el => {
-                    el.classList.remove('active-sub');
-                });
-                const proj1MenuButtons = document.querySelectorAll('#proj1-menu .sub-nav-btn');
-                if (proj1MenuButtons.length > 0) {
-                    proj1MenuButtons.forEach(btn => btn.classList.remove('active-btn'));
-                    proj1MenuButtons[0].classList.add('active-btn');
-                    document.getElementById('exhibition').classList.add('active-sub'); 
-                }
+            const activeVideo = activeSection.querySelector('.active-sub video') || activeSection.querySelector('video');
+            if (activeVideo) {
+                activeVideo.muted = true; 
+                activeVideo.play().catch(e => console.log("Autoplay blocked:", e));
             }
+
+            // Handle Menus
+            document.querySelectorAll('.project-sub-nav').forEach(nav => {
+                nav.classList.remove('visible');
+            });
+
+            if (sectionId === 'project1') {
+                document.getElementById('proj1-menu').classList.add('visible');
+            } 
+            else if (sectionId === 'hebeiProject') {
+                document.getElementById('hebei-menu').classList.add('visible');
+            }
+            else if (sectionId === 'pontusProject') {
+                document.getElementById('pontus-menu').classList.add('visible');
+            }
+
+            // Reset States
+            if (sectionId !== 'project1') resetSubSectionState('project1', 'exhibition', 'proj1-menu');
+            if (sectionId !== 'hebeiProject') resetSubSectionState('hebeiProject', 'hebei-exhibition', 'hebei-menu');
+            if (sectionId !== 'pontusProject') resetSubSectionState('pontusProject', 'pontus-exhibition', 'pontus-menu');
         }
 
-        // Navigation for Sub-Sections
+        function resetSubSectionState(projectId, defaultSubId, menuId) {
+            const projectEl = document.getElementById(projectId);
+            const menuEl = document.getElementById(menuId);
+            
+            projectEl.querySelectorAll('.sub-section').forEach(el => el.classList.remove('active-sub'));
+            document.getElementById(defaultSubId).classList.add('active-sub');
+            
+            menuEl.querySelectorAll('.sub-nav-btn').forEach(btn => btn.classList.remove('active-btn'));
+            menuEl.querySelector('.sub-nav-btn:first-child').classList.add('active-btn');
+        }
+
         function switchSubSection(subId, btnElement) {
             const parentProject = btnElement.closest('.project-detail');
             if (parentProject) {
-                parentProject.querySelectorAll('.sub-section').forEach(el => {
-                    el.classList.remove('active-sub');
-                });
-                document.getElementById(subId).classList.add('active-sub');
+                parentProject.querySelectorAll('.sub-section').forEach(el => el.classList.remove('active-sub'));
+                const targetSub = document.getElementById(subId);
+                targetSub.classList.add('active-sub');
 
-                parentProject.querySelectorAll('.sub-nav-btn').forEach(btn => {
-                    btn.classList.remove('active-btn');
-                });
+                parentProject.querySelectorAll('video').forEach(v => v.pause());
+                const newVideo = targetSub.querySelector('video');
+                if(newVideo) {
+                    newVideo.muted = true;
+                    newVideo.play().catch(e => console.log("Autoplay blocked:", e));
+                }
+
+                parentProject.querySelectorAll('.sub-nav-btn').forEach(btn => btn.classList.remove('active-btn'));
                 btnElement.classList.add('active-btn');
             }
         }
 
-        // LIGHTBOX LOGIC
         function openLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -590,7 +627,6 @@
             document.getElementById('lightbox').style.display = 'none';
         }
 
-        // Time
         function showTime() {
             const timeElement = document.getElementById('currentTime');
             if (timeElement) {
@@ -602,11 +638,12 @@
             showTime();
         }, 1000);
 
-        // Initial setup
         document.addEventListener('DOMContentLoaded', () => {
-            if (document.getElementById('project1').classList.contains('active')) {
-                document.getElementById('exhibition').classList.add('active-sub');
-                document.querySelector('#proj1-menu .sub-nav-btn:first-child').classList.add('active-btn');
+            const activeSection = document.querySelector('section.active');
+            if (activeSection) {
+                if (activeSection.id === 'project1') document.getElementById('proj1-menu').classList.add('visible');
+                else if (activeSection.id === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
+                else if (activeSection.id === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
             }
         });
 
