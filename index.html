@@ -108,7 +108,7 @@
         .project-index-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3 columns */
-            gap: 15px; /* UPDATED: Decreased gap between items */
+            gap: 15px; /* Decreased gap between items */
             margin-top: 20px;
         }
 
@@ -141,7 +141,7 @@
             justify-content: center; /* Centers horizontally */
             align-items: center; /* Centers vertically */
             transition: background-color 0.3s ease;
-            padding: 15px; /* UPDATED: Slightly less padding to allow text wrapping */
+            padding: 15px; /* Slightly less padding to allow text wrapping */
         }
 
         /* The title text inside the overlay */
@@ -363,10 +363,10 @@
 
     <header>
         <div class="header-left">
-            <h1><a href="#" onclick="showSection('info')" style="text-decoration:none; color:black;">Yingzhi Ning</a></h1>
+            <h1><a href="javascript:void(0)" onclick="showSection('info')" style="text-decoration:none; color:black;">Yingzhi Ning</a></h1>
             <nav>
-                <a href="#" onclick="showSection('info')">INFO</a>
-                <a href="#" onclick="showSection('home')">PROJECT INDEX</a>
+                <a href="javascript:void(0)" onclick="showSection('info')">INFO</a>
+                <a href="javascript:void(0)" onclick="showSection('home')">PROJECT INDEX</a>
             </nav>
         </div>
         <div id="currentTime">Loading time...</div>
@@ -395,35 +395,35 @@
     <section id="home">
         <div class="project-index-grid">
             
-            <a href="#" class="project-thumbnail" onclick="showSection('project1')">
+            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('project1')">
                 <img src="a3e6044174943588bc1776341ae2ce2d.jpg" alt="She Swims in Silence">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">SHE SWIMS IN SILENCE - MIT</span>
                 </div>
             </a>
 
-            <a href="#" class="project-thumbnail" onclick="showSection('hebeiProject')">
+            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('hebeiProject')">
                 <img src="Screenshot 2025-11-22 at 9.57.45 PM.jpg" alt="Hebei Resonance">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">Resonance - HEBEI PROVINCIAL MUSEUM</span>
                 </div>
             </a>
 
-            <a href="#" class="project-thumbnail" onclick="showSection('pontusProject')">
+            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('pontusProject')">
                 <img src="Screenshot 2025-11-22 at 9.54.13 PM.jpg" alt="Pontus Echo">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">PONTUS' ECHO - TANK SHANGHAI</span>
                 </div>
             </a>
 
-            <a href="#" class="project-thumbnail" onclick="showSection('project2')">
+            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('project2')">
                 <img src="https://via.placeholder.com/600x600/cccccc/333333?text=TRACES" alt="Traces of Ripples">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">TRACES OF RIPPLES</span>
                 </div>
             </a>
 
-            <a href="#" class="project-thumbnail" onclick="showSection('project3')">
+            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('project3')">
                 <img src="https://via.placeholder.com/600x600/cccccc/333333?text=STENTS" alt="Stents">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">STENTS</span>
@@ -486,9 +486,9 @@
 
             <div class="project-menu-wrapper">
                 <div id="proj1-menu" class="project-sub-nav visible">
-                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('mit-act', this)">ACT GALLERY</button>
-                    <button class="sub-nav-btn" onclick="switchSubSection('mit-wiesner', this)">WIESNER GALLERY</button>
-                    <button class="sub-nav-btn" onclick="switchSubSection('process', this)">DESIGN PROCESS</button>
+                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('mit-act', this, 'project1')">ACT GALLERY</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('mit-wiesner', this, 'project1')">WIESNER GALLERY</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('process', this, 'project1')">DESIGN PROCESS</button>
                 </div>
             </div>
         </div>
@@ -565,9 +565,9 @@
 
             <div class="project-menu-wrapper">
                 <div id="hebei-menu" class="project-sub-nav">
-                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('hebei-light', this)">WHERE LIGHT FERMENTS,<br>TIME RESOUNDS</button>
-                    <button class="sub-nav-btn" onclick="switchSubSection('hebei-mist', this)">MIST OF THE CENSER REALM</button>
-                    <button class="sub-nav-btn" onclick="switchSubSection('hebei-process', this)">DESIGN PROCESS</button>
+                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('hebei-light', this, 'hebeiProject')">WHERE LIGHT FERMENTS,<br>TIME RESOUNDS</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('hebei-mist', this, 'hebeiProject')">MIST OF THE CENSER REALM</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('hebei-process', this, 'hebeiProject')">DESIGN PROCESS</button>
                 </div>
             </div>
         </div>
@@ -607,8 +607,8 @@
 
             <div class="project-menu-wrapper">
                 <div id="pontus-menu" class="project-sub-nav">
-                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('pontus-exhibition', this)">EXHIBITION PHOTOS</button>
-                    <button class="sub-nav-btn" onclick="switchSubSection('pontus-process', this)">DESIGN PROCESS</button>
+                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('pontus-exhibition', this, 'pontusProject')">EXHIBITION PHOTOS</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('pontus-process', this, 'pontusProject')">DESIGN PROCESS</button>
                 </div>
             </div>
         </div>
@@ -616,24 +616,36 @@
 
 
     <script>
-        function showSection(sectionId) {
+        function showSection(sectionId, pushState = true, scroll = true) {
+            // Hide all
             const sections = document.querySelectorAll('section');
             sections.forEach(sec => sec.classList.remove('active'));
             
+            // Pause videos
             document.querySelectorAll('video').forEach(vid => {
                 vid.pause();
             });
 
+            // Show active
             const activeSection = document.getElementById(sectionId);
             activeSection.classList.add('active');
-            window.scrollTo(0,0);
+            
+            // Scroll to top only when navigating (pushState=true) or explicitly told to (scroll=true)
+            if (scroll && pushState) { 
+                window.scrollTo(0,0);
+            }
 
-            const activeVideo = activeSection.querySelector('.active-sub video') || activeSection.querySelector('video');
+            // Autoplay Video
+            // Find the *currently active* sub-section's video, or the first one in the main section
+            const activeSub = activeSection.querySelector('.sub-section.active-sub') || activeSection;
+            const activeVideo = activeSub.querySelector('video');
+            
             if (activeVideo) {
                 activeVideo.muted = true; 
                 activeVideo.play().catch(e => console.log("Autoplay blocked:", e));
             }
 
+            // Manage Side Menus
             document.querySelectorAll('.project-sub-nav').forEach(nav => {
                 nav.classList.remove('visible');
             });
@@ -642,11 +654,116 @@
             else if (sectionId === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
             else if (sectionId === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
 
-            // Reset States
+            // Reset Sub-section states on new visit
+            // This is important to ensure the default sub-section loads correctly when clicking from home
             if (sectionId !== 'project1') resetSubSectionState('project1', 'mit-act', 'proj1-menu');
             if (sectionId !== 'hebeiProject') resetSubSectionState('hebeiProject', 'hebei-light', 'hebei-menu');
             if (sectionId !== 'pontusProject') resetSubSectionState('pontusProject', 'pontus-exhibition', 'pontus-menu');
+
+
+            // HISTORY API IMPLEMENTATION
+            if (pushState) {
+                // Determine the URL hash for the main section
+                let urlHash = '#' + sectionId;
+
+                // If navigating to a project, check if we need to include the default sub-section in the URL for deep-linking
+                if (sectionId === 'project1' && document.getElementById('mit-act').classList.contains('active-sub')) {
+                    urlHash += '-mit-act';
+                } else if (sectionId === 'hebeiProject' && document.getElementById('hebei-light').classList.contains('active-sub')) {
+                    urlHash += '-hebei-light';
+                } else if (sectionId === 'pontusProject' && document.getElementById('pontus-exhibition').classList.contains('active-sub')) {
+                    urlHash += '-pontus-exhibition';
+                }
+
+                history.pushState({id: sectionId, subId: activeSub.id}, null, urlHash);
+            }
         }
+
+        /**
+         * The core function to switch sub-sections and update history.
+         * @param {string} subId - The ID of the target sub-section (e.g., 'mit-act').
+         * @param {HTMLElement} btnElement - The button element clicked.
+         * @param {string} projectId - The ID of the parent project (e.g., 'project1').
+         */
+        function switchSubSection(subId, btnElement, projectId) {
+            const parentProject = document.getElementById(projectId);
+
+            if (parentProject) {
+                // 1. Hide all sub-sections in the current project
+                parentProject.querySelectorAll('.sub-section').forEach(el => el.classList.remove('active-sub'));
+                
+                // 2. Show the target sub-section
+                const targetSub = document.getElementById(subId);
+                targetSub.classList.add('active-sub');
+
+                // 3. Handle video playback
+                parentProject.querySelectorAll('video').forEach(v => v.pause());
+                const newVideo = targetSub.querySelector('video');
+                if(newVideo) {
+                    newVideo.muted = true;
+                    newVideo.play().catch(e => console.log("Autoplay blocked:", e));
+                }
+
+                // 4. Update active button state
+                parentProject.querySelectorAll('.sub-nav-btn').forEach(btn => btn.classList.remove('active-btn'));
+                btnElement.classList.add('active-btn');
+                
+                // 5. Update browser history to save the current sub-section
+                // The new URL will look like #project1-mit-wiesner
+                history.pushState({id: projectId, subId: subId}, null, '#' + projectId + '-' + subId);
+            }
+        }
+
+
+        // HANDLE BROWSER BACK BUTTON
+        window.onpopstate = function(event) {
+            if (event.state && event.state.id) {
+                // If the state includes a subId, switch the sub-section without pushing a new state
+                if (event.state.subId) {
+                    
+                    // 1. Show the main project section
+                    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+                    const mainSection = document.getElementById(event.state.id);
+                    mainSection.classList.add('active');
+                    
+                    // 2. Switch to the specific sub-section
+                    const btn = document.querySelector(`.project-sub-nav.visible button[onclick*="${event.state.subId}"`);
+                    
+                    // Perform the sub-section switch logic without pushing history again (pushState=false logic inside)
+                    if (btn) {
+                        // Manual activation logic copied from switchSubSection (without pushState)
+                        mainSection.querySelectorAll('.sub-section').forEach(el => el.classList.remove('active-sub'));
+                        const targetSub = document.getElementById(event.state.subId);
+                        targetSub.classList.add('active-sub');
+                        
+                        mainSection.querySelectorAll('.sub-nav-btn').forEach(b => b.classList.remove('active-btn'));
+                        btn.classList.add('active-btn');
+                        
+                        // Handle video playback for the restored sub-section
+                        mainSection.querySelectorAll('video').forEach(v => v.pause());
+                        const newVideo = targetSub.querySelector('video');
+                        if(newVideo) {
+                            newVideo.muted = true;
+                            newVideo.play().catch(e => console.log("Autoplay blocked:", e));
+                        }
+                    }
+
+                    // 3. Ensure the menu is visible (if needed, this is done by showSection normally but we bypass it here)
+                    document.querySelectorAll('.project-sub-nav').forEach(nav => nav.classList.remove('visible'));
+                    if (event.state.id === 'project1') document.getElementById('proj1-menu').classList.add('visible');
+                    else if (event.state.id === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
+                    else if (event.state.id === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
+
+                } else {
+                    // Otherwise, switch the main section using the standard function
+                    showSection(event.state.id, false, false); 
+                }
+            } else {
+                // Default to info if history is empty
+                showSection('info', false, false);
+            }
+        };
+
 
         function resetSubSectionState(projectId, defaultSubId, menuId) {
             const projectEl = document.getElementById(projectId);
@@ -659,25 +776,7 @@
             menuEl.querySelector('.sub-nav-btn:first-child').classList.add('active-btn');
         }
 
-        function switchSubSection(subId, btnElement) {
-            const parentProject = btnElement.closest('.project-detail');
-            if (parentProject) {
-                parentProject.querySelectorAll('.sub-section').forEach(el => el.classList.remove('active-sub'));
-                const targetSub = document.getElementById(subId);
-                targetSub.classList.add('active-sub');
-
-                parentProject.querySelectorAll('video').forEach(v => v.pause());
-                const newVideo = targetSub.querySelector('video');
-                if(newVideo) {
-                    newVideo.muted = true;
-                    newVideo.play().catch(e => console.log("Autoplay blocked:", e));
-                }
-
-                parentProject.querySelectorAll('.sub-nav-btn').forEach(btn => btn.classList.remove('active-btn'));
-                btnElement.classList.add('active-btn');
-            }
-        }
-
+        // --- Lightbox & Time functions (Unchanged) ---
         function openLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -700,15 +799,60 @@
             showTime();
         }, 1000);
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const activeSection = document.querySelector('section.active');
-            if (activeSection) {
-                if (activeSection.id === 'project1') document.getElementById('proj1-menu').classList.add('visible');
-                else if (activeSection.id === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
-                else if (activeSection.id === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
-            }
-        });
+        // INITIAL LOAD HANDLING (The Fix from last turn)
+        window.onload = () => {
+            const hash = window.location.hash.substring(1);
+            let sectionId = 'info';
+            let subId = null;
 
+            if (hash) {
+                // Check for deep link format: #project1-mit-wiesner
+                const parts = hash.split('-');
+                if (parts.length > 1 && document.getElementById(parts[0])) {
+                    sectionId = parts[0];
+                    subId = hash;
+                } else if (document.getElementById(hash)) {
+                    // Standard section link: #project1 or #info
+                    sectionId = hash;
+                }
+            }
+            
+            // Activate the correct main section first
+            showSection(sectionId, false, false);
+
+            // If a sub-section was specified in the URL, activate it
+            if (subId) {
+                const targetSub = document.getElementById(subId.replace(sectionId + '-', ''));
+                if (targetSub) {
+                    const parentProject = document.getElementById(sectionId);
+                    parentProject.querySelectorAll('.sub-section').forEach(el => el.classList.remove('active-sub'));
+                    targetSub.classList.add('active-sub');
+                    
+                    // Update button state manually for initial load
+                    const menu = parentProject.querySelector('.project-sub-nav');
+                    menu.querySelectorAll('.sub-nav-btn').forEach(btn => btn.classList.remove('active-btn'));
+                    const targetBtn = menu.querySelector(`[onclick*="${targetSub.id}"]`);
+                    if(targetBtn) targetBtn.classList.add('active-btn');
+
+                    // Play video
+                    const newVideo = targetSub.querySelector('video');
+                    if(newVideo) {
+                        newVideo.muted = true;
+                        newVideo.play().catch(e => console.log("Autoplay blocked:", e));
+                    }
+                }
+            }
+
+            // Replace state with the current *full* section/sub-section state
+            const currentState = {
+                id: sectionId, 
+                subId: subId ? subId.replace(sectionId + '-', '') : null
+            };
+            history.replaceState(currentState, null, '#' + hash);
+
+            // Crucially, call window.scrollTo(0,0) here to force the initial view to the top *after* everything has rendered.
+            window.scrollTo(0,0);
+        };
     </script>
 
 </body>
