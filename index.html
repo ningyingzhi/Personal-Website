@@ -31,7 +31,7 @@
 
             color: var(--text-color);
             font-family: var(--font-stack);
-            font-size: 14px;
+            font-size: 15px; /* UPDATED: Changed from 14px to 15px */
             line-height: 1.5;
             margin: 0;
             padding: var(--spacing);
@@ -81,17 +81,17 @@
             margin-top: 8px; 
         }
 
-        /* --- INFO PAGE LAYOUT --- */
+        /* --- INFO PAGE LAYOUT (Homepage: Seal + Short Bio) --- */
         .info-container {
             display: flex;
-            align-items: center; 
+            align-items: center; /* ALIGNMENT: Vertical centering of seal and text */
             gap: 40px;
             max-width: 900px; 
             margin: 0 auto;
         }
 
         .seal-image {
-            flex: 0 0 300px; 
+            flex: 0 0 300px; /* SIZE: Fixed at 300px wide */
             height: auto;
             display: block;
             border: none;
@@ -103,19 +103,37 @@
             flex: 1; 
             max-width: 600px;
         }
+        
+        /* --- NEW ARTIST STATEMENT PAGE STYLES (Full Statement: Portrait + Long Text) --- */
+        .statement-container {
+            display: flex;
+            align-items: flex-start; /* ALIGNMENT: Aligning image to top of text */
+            gap: 40px;
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        
+        .statement-image {
+            flex: 0 0 400px; /* SIZE: Fixed at 400px wide */
+            max-width: 400px;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
 
-        /* --- NEW PROJECT INDEX GRID LAYOUT --- */
+
+        /* --- PROJECT INDEX GRID LAYOUT --- */
         .project-index-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3 columns */
-            gap: 15px; /* Decreased gap between items */
+            gap: 15px; 
             margin-top: 20px;
         }
 
         .project-thumbnail {
             position: relative;
             display: block;
-            aspect-ratio: 1 / 1; /* Makes thumbnails square */
+            aspect-ratio: 1 / 1; 
             overflow: hidden;
             cursor: pointer;
             text-decoration: none;
@@ -126,7 +144,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease; /* Subtle zoom effect */
+            transition: transform 0.5s ease;
         }
 
         /* The overlay that darkens the image */
@@ -136,12 +154,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0); /* Transparent initially */
+            background-color: rgba(0, 0, 0, 0); 
             display: flex;
-            justify-content: center; /* Centers horizontally */
-            align-items: center; /* Centers vertically */
+            justify-content: center; 
+            align-items: center; 
             transition: background-color 0.3s ease;
-            padding: 15px; /* Slightly less padding to allow text wrapping */
+            padding: 15px; 
         }
 
         /* The title text inside the overlay */
@@ -150,24 +168,24 @@
             font-family: var(--font-stack);
             font-size: 18px;
             text-transform: uppercase;
-            text-align: center; /* Ensures wrapped text is centered */
-            opacity: 0; /* Hidden initially */
+            text-align: center; 
+            opacity: 0; 
             transition: opacity 0.3s ease;
             letter-spacing: 1px;
-            max-width: 100%; /* Ensures it doesn't overflow */
+            max-width: 100%; 
         }
 
         /* --- HOVER EFFECTS FOR INDEX --- */
         .project-thumbnail:hover .thumbnail-overlay {
-            background-color: rgba(0, 0, 0, 0.6); /* Darken on hover */
+            background-color: rgba(0, 0, 0, 0.6); 
         }
 
         .project-thumbnail:hover .thumbnail-title {
-            opacity: 1; /* Show text on hover */
+            opacity: 1; 
         }
         
         .project-thumbnail:hover img {
-            transform: scale(1.05); /* Slight zoom on image */
+            transform: scale(1.05); 
         }
 
 
@@ -345,8 +363,8 @@
             /* Switch grid to 1 column on mobile */
             .project-index-grid { grid-template-columns: 1fr; }
             
-            .info-container { flex-direction: column; align-items: flex-start; gap: 30px; }
-            .seal-image { flex: none; width: 150px; }
+            .info-container, .statement-container { flex-direction: column; align-items: flex-start; gap: 30px; }
+            .seal-image, .statement-image { flex: none; width: 100%; max-width: 100%; }
             .project-center-group { flex-direction: column-reverse; gap: 20px; }
             .project-menu-wrapper { position: relative; top: 0; transform: none; width: 100%; justify-content: flex-start; border-bottom: 1px solid #ccc; padding-bottom: 15px; margin-bottom: 15px; }
             .project-sub-nav { align-items: flex-start; gap: 10px; }
@@ -365,7 +383,7 @@
         <div class="header-left">
             <h1><a href="javascript:void(0)" onclick="showSection('info')" style="text-decoration:none; color:black;">Yingzhi Ning</a></h1>
             <nav>
-                <a href="javascript:void(0)" onclick="showSection('info')">INFO</a>
+                <a href="javascript:void(0)" onclick="showSection('full-artist-statement')">ARTIST STATEMENT</a>
                 <a href="javascript:void(0)" onclick="showSection('home')">PROJECT INDEX</a>
             </nav>
         </div>
@@ -377,20 +395,41 @@
             <img src="seal.png" alt="Artist Seal" class="seal-image">
             
             <div class="bio-content">
-                <p><strong>Yingzhi Ning (b. 2003, China), moved to NYC in 2018</strong> <br>
-                Works in sound art and product design.</p>
+                <p><strong>Yingzhi (Allen) Ning </strong>is a sound artist, engineer, and designer working across installation, product design, sound design, and music engineering.</p>
+                He has been entrusted to work on projects presented at: <br>
+                MIT<br>
+                TANK Shanghai<br>
+                Hebei Provincial Museum<br>
+                Guangzhou Opera House<br>
+                and 41 Cooper Gallery.<br>
                 <br>
                 <p><strong>CONTACT</strong><br>
                 yn2167@nyu.edu<br>
-                </p>
-                <br>
-                <p><strong>WORKS SHOWN AT</strong><br>
-                MIT ACT Gallery & Wiesner Gallery<br>
-                TANK Shanghai<br>
-                Hebei Provincial Museum</p>
             </div>
         </div>
     </section>
+    
+    <section id="full-artist-statement">
+        <div class="statement-container">
+            <img src="R0005535.jpg" alt="Portrait Image" class="statement-image">
+            
+            <div class="bio-content">
+                <p>
+                    <strong>Yingzhi (Allen) Ning</strong> is a sound artist, engineer, and designer working across installation, product design, sound design, and music engineering. Graduating from New York University with a double major in Music Technology and Economics, he received comprehensive training to address real-world challenges with artistic and academic disciplines.
+                </p>
+                <p>
+                    Alongside his education, Allen has gained abundant hands-on experience in multiple renowned music and art companies, where he worked on sound and visual design and production of museum projects, concert and studio recordings, and other artists’ exhibitions.
+                </p>
+                <p>
+                    Inspired by the works of philosophers, notably Christoph Cox and Gilles Deleuze, Allen’s research mainly focuses on utilizing sound as a physical and symbolic force to expand the boundaries of cultures with art and technology. This theme is prominent across his works, including sound installations <em>Traces of Ripples</em> and <em>Stents</em>, where he digs deep into the essence of calligraphy and presents it in ways that are relevant to today’s world music technology and design.
+                </p>
+                <p>
+                    He has been entrusted with sound and visual design, as well as music recording and engineering of projects that were presented at MIT ACT & Wiesner Galleries, TANK Shanghai, Hebei Provincial Museum, 41 Cooper Gallery, and Guangzhou Opera House.
+                </p>
+            </div>
+        </div>
+    </section>
+
 
     <section id="home">
         <div class="project-index-grid">
@@ -488,7 +527,8 @@
                 <div id="proj1-menu" class="project-sub-nav visible">
                     <button class="sub-nav-btn active-btn" onclick="switchSubSection('mit-act', this, 'project1')">ACT GALLERY</button>
                     <button class="sub-nav-btn" onclick="switchSubSection('mit-wiesner', this, 'project1')">WIESNER GALLERY</button>
-                    <button class="sub-nav-btn" onclick="switchSubSection('process', this, 'project1')">DESIGN & FABRICATION</button> </div>
+                    <button class="sub-nav-btn" onclick="switchSubSection('process', this, 'project1')">DESIGN & FABRICATION</button>
+                </div>
             </div>
         </div>
     </section>
@@ -542,7 +582,8 @@
             <div class="project-menu-wrapper">
                 <div id="proj3-menu" class="project-sub-nav">
                     <button class="sub-nav-btn active-btn" onclick="switchSubSection('stents-exhibition', this, 'project3')">EXHIBITION PHOTOS</button>
-                    <button class="sub-nav-btn" onclick="switchSubSection('stents-process', this, 'project3')">DESIGN & FABRICATION</button> </div>
+                    <button class="sub-nav-btn" onclick="switchSubSection('stents-process', this, 'project3')">DESIGN & FABRICATION</button>
+                </div>
             </div>
         </div>
     </section>
@@ -601,7 +642,8 @@
                 <div id="hebei-menu" class="project-sub-nav">
                     <button class="sub-nav-btn active-btn" onclick="switchSubSection('hebei-light', this, 'hebeiProject')">WHERE LIGHT FERMENTS,<br>TIME RESOUNDS</button>
                     <button class="sub-nav-btn" onclick="switchSubSection('hebei-mist', this, 'hebeiProject')">MIST OF THE CENSER REALM</button>
-                    <button class="sub-nav-btn" onclick="switchSubSection('hebei-process', this, 'hebeiProject')">DESIGN & FABRICATION</button> </div>
+                    <button class="sub-nav-btn" onclick="switchSubSection('hebei-process', this, 'hebeiProject')">DESIGN & FABRICATION</button>
+                </div>
             </div>
         </div>
     </section>
@@ -641,7 +683,8 @@
             <div class="project-menu-wrapper">
                 <div id="pontus-menu" class="project-sub-nav">
                     <button class="sub-nav-btn active-btn" onclick="switchSubSection('pontus-exhibition', this, 'pontusProject')">EXHIBITION PHOTOS</button>
-                    <button class="sub-nav-btn" onclick="switchSubSection('pontus-process', this, 'pontusProject')">DESIGN & FABRICATION</button> </div>
+                    <button class="sub-nav-btn" onclick="switchSubSection('pontus-process', this, 'pontusProject')">DESIGN & FABRICATION</button>
+                </div>
             </div>
         </div>
     </section>
@@ -669,7 +712,7 @@
 
             // Autoplay Video
             const activeSub = activeSection.querySelector('.sub-section.active-sub') || activeSection;
-            const activeVideo = activeSub.querySelector('video');
+            const activeVideo = activeSub ? activeSub.querySelector('video') : null;
             
             if (activeVideo) {
                 activeVideo.muted = true; 
@@ -698,18 +741,25 @@
                 // Determine the URL hash for the main section
                 let urlHash = '#' + sectionId;
 
-                // If navigating to a project, check if we need to include the default sub-section in the URL for deep-linking
-                if (sectionId === 'project1' && document.getElementById('mit-act').classList.contains('active-sub')) {
-                    urlHash += '-mit-act';
-                } else if (sectionId === 'project3' && document.getElementById('stents-exhibition').classList.contains('active-sub')) {
-                    urlHash += '-stents-exhibition';
-                } else if (sectionId === 'hebeiProject' && document.getElementById('hebei-light').classList.contains('active-sub')) {
-                    urlHash += '-hebei-light';
-                } else if (sectionId === 'pontusProject' && document.getElementById('pontus-exhibition').classList.contains('active-sub')) {
-                    urlHash += '-pontus-exhibition';
+                // Handle default hash for the info section
+                if (sectionId === 'info') {
+                    urlHash = '#'; // Root URL
+                } else if (sectionId === 'full-artist-statement') {
+                    urlHash = '#artist-statement-full';
                 }
 
-                history.pushState({id: sectionId, subId: activeSub.id}, null, urlHash);
+                // If navigating to a project, check if we need to include the default sub-section in the URL for deep-linking
+                if (sectionId === 'project1' && document.getElementById('mit-act').classList.contains('active-sub')) {
+                    urlHash = '#' + sectionId + '-mit-act';
+                } else if (sectionId === 'project3' && document.getElementById('stents-exhibition').classList.contains('active-sub')) {
+                    urlHash = '#' + sectionId + '-stents-exhibition';
+                } else if (sectionId === 'hebeiProject' && document.getElementById('hebei-light').classList.contains('active-sub')) {
+                    urlHash = '#' + sectionId + '-hebei-light';
+                } else if (sectionId === 'pontusProject' && document.getElementById('pontus-exhibition').classList.contains('active-sub')) {
+                    urlHash = '#' + sectionId + '-pontus-exhibition';
+                }
+
+                history.pushState({id: sectionId, subId: activeSub ? activeSub.id : null}, null, urlHash);
             }
         }
 
@@ -790,7 +840,7 @@
                     showSection(event.state.id, false, false); 
                 }
             } else {
-                // Default to info if history is empty
+                // Default to the info page if history is empty (e.g., initial load or hitting root)
                 showSection('info', false, false);
             }
         };
@@ -833,10 +883,12 @@
         // INITIAL LOAD HANDLING
         window.onload = () => {
             const hash = window.location.hash.substring(1);
-            let sectionId = 'info';
+            let sectionId = 'info'; // Default is now the short bio/seal page
             let subId = null;
 
-            if (hash) {
+            if (hash === 'artist-statement-full') {
+                sectionId = 'full-artist-statement';
+            } else if (hash) {
                 const parts = hash.split('-');
                 if (document.getElementById(parts[0]) && (parts.length === 2 || (parts.length > 2 && hash.includes(parts[0])))) {
                     sectionId = parts[0];
@@ -874,7 +926,7 @@
                 id: sectionId, 
                 subId: subId ? subId.replace(sectionId + '-', '') : null
             };
-            history.replaceState(currentState, null, '#' + hash);
+            history.replaceState(currentState, null, window.location.hash || ''); 
 
             window.scrollTo(0,0);
         };
