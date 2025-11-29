@@ -74,13 +74,6 @@
             border-bottom: 1px solid #000;
         }
 
-        #currentTime {
-            font-size: 12px;
-            color: #222; 
-            text-align: right;
-            margin-top: 8px; 
-        }
-
         /* --- INFO PAGE LAYOUT (Homepage: Seal + Short Bio) --- */
         .info-container {
             display: flex;
@@ -169,10 +162,11 @@
             font-size: 18px;
             text-transform: uppercase;
             text-align: center; 
+            display: block; 
+            width: 100%; /* NEW FIX: Ensures the element takes full width for text-align: center to work on multi-line text */
             opacity: 0; 
             transition: opacity 0.3s ease;
             letter-spacing: 1px;
-            max-width: 100%; 
         }
 
         /* --- HOVER EFFECTS FOR INDEX --- */
@@ -291,6 +285,19 @@
             margin-bottom: 20px;
             cursor: zoom-in;
         }
+        
+        /* --- NEW STYLES FOR HORIZONTAL SCREENSHOTS --- */
+        .horizontal-stack .img-wrapper {
+            aspect-ratio: unset; /* Remove fixed aspect ratio */
+            height: auto;
+            margin-bottom: 20px; /* Spacing between horizontal images */
+        }
+        
+        .horizontal-stack .img-wrapper img {
+            width: 100%;
+            height: auto; /* Allow image height to be determined naturally */
+            object-fit: contain; /* Ensure the whole wide image is visible */
+        }
 
         /* --- VERTICAL STACK --- */
         .vertical-wrapper {
@@ -316,8 +323,22 @@
 
         .caption {
             margin-bottom: 60px;
-            font-size: 12px;
+            font-size: 12px; /* Base size for Fig number - inherited */
             color: #111;
+        }
+        
+        /* Specific styling for the description text within the caption */
+        .caption p {
+            line-height: 1.5;
+            margin-top: 10px;
+            font-size: 15px; /* Set description paragraphs to 15px */
+            text-align: left; /* Ensures all description paragraphs are left-aligned */
+        }
+
+        /* NEW RULE: Override for the first paragraph (containing Fig number) to keep it small (12px) and align right */
+        .caption p:first-child {
+            font-size: 12px;
+            text-align: right; /* Aligns the figure number line to the right */
         }
 
         .back-btn {
@@ -369,6 +390,12 @@
             .project-menu-wrapper { position: relative; top: 0; transform: none; width: 100%; justify-content: flex-start; border-bottom: 1px solid #ccc; padding-bottom: 15px; margin-bottom: 15px; }
             .project-sub-nav { align-items: flex-start; gap: 10px; }
             .image-grid { grid-template-columns: 1fr; }
+            
+            /* NEW MOBILE RULE: Override the right alignment to ensure all text is left-aligned on mobile */
+            .caption p:first-child { text-align: left; }
+            
+            /* Adjust horizontal stack on mobile */
+            .horizontal-stack { padding: 0; }
         }
 
     </style>
@@ -387,7 +414,6 @@
                 <a href="javascript:void(0)" onclick="showSection('home')">PROJECT INDEX</a>
             </nav>
         </div>
-        <div id="currentTime">Loading time...</div>
     </header>
 
     <section id="info" class="active">
@@ -444,7 +470,7 @@
             <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('hebeiProject')">
                 <img src="Screenshot 2025-11-22 at 9.57.45 PM.jpg" alt="Hebei Resonance">
                 <div class="thumbnail-overlay">
-                    <span class="thumbnail-title">Resonance - HEBEI PROVINCIAL MUSEUM</span>
+                    <span class="thumbnail-title">RESOnance - HEBEI PROVINCIAL MUSEUM</span>
                 </div>
             </a>
 
@@ -456,7 +482,7 @@
             </a>
 
             <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('project2')">
-                <img src="https://via.placeholder.com/600x600/cccccc/333333?text=TRACES" alt="Traces of Ripples">
+                <img src="IMG_7767.jpg" alt="Traces of Ripples">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">TRACES OF RIPPLES</span>
                 </div>
@@ -493,6 +519,11 @@
                     </div>
                     <div class="caption">
                         <p><strong>Fig 1-6.</strong> Installation views at ACT Gallery.</p>
+                        <p><strong>She Swims in Silence (2025)</strong><br>
+                        <em>Fishing net structure, 3d-printed speakers, multichannel sound, mirrors, VR audio & video</em></p>
+                        <p>She Swims in Silence uses a suspended fishing net decorated with hundreds of mirrors as an immersive environment to recall a period in Chinese history, when young women were encouraged to move to and develop Xinjiang. Their voices and identities were often absorbed into collective life, leaving few personal narratives behind.</p>
+                        <p>The net vibrates with layered sound from eight speakers surrounding and hovering the net: factory noise, model operas, slogans, and women’s voices. As viewers step into the structure, they become participants and witnesses of the memory from this piece of history. Through light, sound, and vibration, the work hints at stories that resonate beneath the surface.</p>
+                        <p>I worked on speaker design, sound design, parts of visual design, and VR sound design.</p>
                     </div>
                 </div>
 
@@ -514,11 +545,14 @@
 
                 <div id="process" class="sub-section">
                     <div class="image-grid">
-                        <div class="img-wrapper"><img src="Screen Shot 2025-07-24 at 3.44.56 PM.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="ca5affd8-d451-4830-b38c-992f4831419a.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="fe5033cd-aaef-4b24-94a6-0c1604d3e9eb.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="bf3278f42f70a6dc7b145f2edff983c.jpg" onclick="openLightbox(this.src)"></div>
                         <div class="img-wrapper"><img src="752df304e332af2c5daf4440c7a90073.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="Screen Shot 2025-07-24 at 3.44.56 PM.jpg" onclick="openLightbox(this.src)"></div>
                     </div>
                     <div class="caption">
-                        <p><strong>Fig 5-6.</strong> Workstation screenshots / Process documentation.</p>
+                        <p><strong>Fig 1-5.</strong> Workstation screenshots / Process documentation.</p>
                     </div>
                 </div>
             </div>
@@ -535,10 +569,55 @@
 
     <section id="project2" class="project-detail">
         <div class="back-btn" onclick="showSection('home')">&larr; Back to Project Index</div>
-        <div style="max-width: 900px; margin: 0 auto;">
-            <img src="https://via.placeholder.com/900x1200/e0e0e0/333333?text=Vertical+Sculpture" alt="Sculpture">
-            <div class="caption">
-                <p><strong>Fig 1.</strong> <em>Sculpture Name</em>, 2023. Cast aluminum.</p>
+        
+        <div class="project-center-group">
+            <div class="project-media-content">
+                
+                <div id="traces-exhibition" class="sub-section active-sub">
+                    <video width="100%" height="auto" controls muted playsinline loop style="margin-bottom: 20px;">
+                        <source src="Traces of Ripples Low.mp4" type="video/mp4">
+                      </video>
+
+                    <div class="image-grid">
+                        <div class="img-wrapper"><img src="IMG_7767.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="IMG_7771.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="R0006044.JPG" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="Screenshot 2025-11-28 at 4.39.30 PM.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="Screenshot 2025-11-28 at 4.43.30 PM.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="Screenshot 2025-11-28 at 4.41.52 PM.jpg" onclick="openLightbox(this.src)"></div>
+                    </div>
+                    
+                    <div class="caption">
+                        <p><strong>Fig 1-6.</strong> Installation views.</p>
+                        <p><strong>Traces of Ripples (2025)</strong><br>
+                        <em>Dual-cassette loop system, calligraphy water mat & brush, contact microphone, magnetic tape, Max MSP patch</em></p>
+                        <p>In Traces of Ripples, the audience is invited to write on a calligraphy water mat where every stroke is made with water instead of ink. As the brush moves on the mat, a contact microphone and cassette recorder immediately capture the friction and pressure of the gesture onto an infinite tape loop. A second cassette player plays this recording back in near real-time.</p>
+                        <p>The Max MSP patch listens to the cassette’s output in real time: whenever it detects new bursts of sound, it triggers random segments of an imported Guqin song. Therefore, each gesture leads to two sounds, the raw brush-mat friction and Guqin fragments, which are shortly erased when new materials get recorded onto the tape loop. </p>
+                        <p>As the water marks evaporate and the magnetic traces are erased, the installation returns to a faint hiss, waiting for the next stroke to set the system in motion again. The same could be said about calligraphy and any other culture: if it isn’t constantly practiced, it will eventually fade away.</p>
+                        <p>I worked on everything individually. </p>
+                    </div>
+                </div>
+
+                <div id="traces-process" class="sub-section">
+                    <div class="image-grid">
+                        <div class="img-wrapper"><img src="Drafts-8 2.JPG" onclick="openLightbox(this.src)" alt="Traces of Ripples Draft 1"></div>
+                        <div class="img-wrapper"><img src="Drafts-9 3.JPG" onclick="openLightbox(this.src)" alt="Traces of Ripples Draft 2"></div>
+                        <div class="img-wrapper"><img src="IMG_6811 2.JPG" onclick="openLightbox(this.src)" alt="Traces of Ripples Fabrication 1"></div>
+                        <div class="img-wrapper"><img src="IMG_6468 3.JPG" onclick="openLightbox(this.src)" alt="Traces of Ripples Fabrication 2"></div>
+                        <div class="img-wrapper"><img src="IMG_7054.JPG" onclick="openLightbox(this.src)" alt="Traces of Ripples Fabrication 3"></div>
+                        <div class="img-wrapper"><img src="R0006027.JPG" onclick="openLightbox(this.src)" alt="Traces of Ripples Fabrication 4"></div>
+                    </div>
+                    <div class="caption">
+                        <p><strong>Fig 1-6.</strong> Documentation of design and fabrication steps.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-menu-wrapper">
+                <div id="proj2-menu" class="project-sub-nav">
+                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('traces-exhibition', this, 'project2')">EXHIBITION PHOTOS</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('traces-process', this, 'project2')">DESIGN & FABRICATION</button>
+                </div>
             </div>
         </div>
     </section>
@@ -560,7 +639,12 @@
                     </div>
                     
                     <div class="caption">
-                        <p><strong>Fig 1-2.</strong> Exhibition views (Images are placeholders until upload).</p>
+                        <p><strong>Fig 1-2.</strong> Exhibition views.</p>
+                        <p><strong>Stents (2025)</strong><br>
+                        <em>Bamboo tubes, metal tubes, wood and metal sheets, nylon ties, conduction speakers (sound exciters), music composition</em></p>
+                        <p>Stents is a sound sculpture that contains two cube structures, one made up of bamboo tubes and sheets, and the other with metal ones. Observed from the front, the bamboo structure writes out the Chinese character “家”, translating into “home”, while the metal structure draws out the shape of a house. This also ties to the materiality of calligraphy, where bamboo tubes are reminiscent of bamboo brushes while metal tubes are reminiscent of pens.</p>
+                        <p>Two conduction speakers are attached to each structure, playing a composition of field recordings and samples of construction sites in Hong Kong that still use bamboo scaffolding, and construction sites in New York City that use metal scaffolding. Bamboo and metal hitting sounds are transformed into drone sounds to accompany the field recordings. Altogether, the work preserves and recreates the classic street views of two cities with distinct cultures and atmospheres.</p>
+                        <p>I worked on everything individually. </p>
                     </div>
                 </div>
 
@@ -574,7 +658,7 @@
                         <div class="img-wrapper"><img src="R0006017.JPG" onclick="openLightbox(this.src)" alt="Fabrication 6"></div>
                     </div>
                     <div class="caption">
-                        <p><strong>Fig 1-6.</strong> Documentation of design and fabrication steps (Images are placeholders until upload).</p>
+                        <p><strong>Fig 1-6.</strong> Documentation of design and fabrication steps.</p>
                     </div>
                 </div>
             </div>
@@ -608,6 +692,11 @@
                     </div>
                     <div class="caption">
                         <p><strong>Fig 1-4.</strong> Installation views.</p>
+                        <p><strong>Where Light Ferments, Time Resounds (2025)</strong><br>
+                        <em>Installation, mixed media</em></p>
+                        <p>Commissioned by Hebei Provincial Museum, Where Light Ferments, Time Resounds reinterprets the ancient gilt-bronze vessel through nine stacked slices of bird-seal patterns. When viewers move their hands in front of the structure, a Kinect gesture sensor activates shifting projections and sound, briefly lighting up the carved motifs.</p>
+                        <p>Rich visual and sonic elements create a momentary glow, allowing the past to surface for an instant before fading back into shadow.</p>
+                        <p>I worked on sound design, parts of visual and TouchDesigner design.</p>
                     </div>
                 </div>
 
@@ -628,12 +717,24 @@
                     </div>
                     <div class="caption">
                         <p><strong>Fig 1-4.</strong> Mist of the Censer Realm.</p>
+                        <p><strong>Mist of the Censer Realm (2025)</strong><br>
+                        <em>Installation, mixed media</em></p>
+                        <p>Commissioned by Hebei Provincial Museum, Mist of the Censer Realm transforms the Boshanlu censer into an inverted mountain structure. Placing a hand beneath it triggers streams of light, sound, moving particles, and rising mist-like visuals that echo the censer’s ancient imagery.</p>
+                        <p>This is a dialogue that spans thousands of years: from bronze censer to digital interaction, what endures is the Chinese pursuit of harmony between humanity and nature.</p>
+                        <p>I worked on sound design and parts of visual design.</p>
                     </div>
                 </div>
 
                 <div id="hebei-process" class="sub-section">
+                    <div class="horizontal-stack">
+                        <div class="img-wrapper"><img src="Screenshot 2025-11-21 at 11.17.59 PM.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="Screenshot 2025-11-21 at 11.18.22 PM.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="Screenshot 2025-11-21 at 11.18.48 PM.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="Screenshot 2025-11-21 at 11.19.01 PM.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="Screenshot 2025-11-21 at 11.19.15 PM.png" onclick="openLightbox(this.src)"></div>
+                    </div>
                     <div class="caption">
-                        <p>Process documentation pending.</p>
+                        <p><strong>Fig 1-5.</strong> Documentation of design and fabrication steps.</p>
                     </div>
                 </div>
             </div>
@@ -670,12 +771,21 @@
                     
                     <div class="caption">
                         <p><strong>Fig 1-6.</strong> Installation views at TANK Shanghai.</p>
+                        <p><strong>Pontus’ Echo (2024 - 2025)</strong><br>
+                        <em>Interactive gauze-screen installation, flexible circuits, glass, projection system, ambiance music</em></p>
+                        <p>In Potus’ Echo, layers of gauze and flexible circuits form a suspended structure that carries flowing, data-driven visuals. These projections, which are generated from satellite imagery, hydrological data, and field recordings, move like water across the surface, shifting in color and texture as the data changes. Ambiance music which emphasizes found sounds accompanies the visual elements.</p>
+                        <p>When viewers touch the gauze, the screens sway and distort, causing the projection to ripple and rotate in real time. Glass sculptures reminiscent of marine organisms hang within the piece, pointing to the intertwined relationships among humans, glassmaking, sand, and the ocean. These interactions encourage viewers to rethink their role within Earth’s unstable and interconnected systems.</p>
+                        <p>I worked on sound design and parts of visual design.</p>
                     </div>
                 </div>
 
                 <div id="pontus-process" class="sub-section">
+                    <div class="image-grid">
+                        <div class="img-wrapper"><img src="bc639619-2fff-472e-8e33-bc794f1cf17e.jpeg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="19311746607260_.pic_hd.jpg" onclick="openLightbox(this.src)"></div>
+                    </div>
                     <div class="caption">
-                        <p>Process documentation pending.</p>
+                        <p><strong>Fig 1-2.</strong> Process documentation.</p>
                     </div>
                 </div>
             </div>
@@ -726,12 +836,14 @@
 
             if (sectionId === 'project1') document.getElementById('proj1-menu').classList.add('visible');
             else if (sectionId === 'project3') document.getElementById('proj3-menu').classList.add('visible');
+            else if (sectionId === 'project2') document.getElementById('proj2-menu').classList.add('visible');
             else if (sectionId === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
             else if (sectionId === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
 
             // Reset Sub-section states on new visit
             if (sectionId !== 'project1') resetSubSectionState('project1', 'mit-act', 'proj1-menu');
             if (sectionId !== 'project3') resetSubSectionState('project3', 'stents-exhibition', 'proj3-menu'); 
+            if (sectionId !== 'project2') resetSubSectionState('project2', 'traces-exhibition', 'proj2-menu');
             if (sectionId !== 'hebeiProject') resetSubSectionState('hebeiProject', 'hebei-light', 'hebei-menu');
             if (sectionId !== 'pontusProject') resetSubSectionState('pontusProject', 'pontus-exhibition', 'pontus-menu');
 
@@ -753,8 +865,12 @@
                     urlHash = '#' + sectionId + '-mit-act';
                 } else if (sectionId === 'project3' && document.getElementById('stents-exhibition').classList.contains('active-sub')) {
                     urlHash = '#' + sectionId + '-stents-exhibition';
-                } else if (sectionId === 'hebeiProject' && document.getElementById('hebei-light').classList.contains('active-sub')) {
-                    urlHash = '#' + sectionId + '-hebei-light';
+                } else if (sectionId === 'project2' && document.getElementById('traces-exhibition').classList.contains('active-sub')) {
+                    urlHash = '#' + sectionId + '-traces-exhibition';
+                } else if (sectionId === 'hebeiProject' && (document.getElementById('hebei-light').classList.contains('active-sub') || document.getElementById('hebei-process').classList.contains('active-sub'))) {
+                    // Check which Hebei sub-section is active
+                    const activeHebeiSub = document.querySelector('#hebeiProject .sub-section.active-sub');
+                    urlHash = '#' + sectionId + '-' + (activeHebeiSub ? activeHebeiSub.id : 'hebei-light');
                 } else if (sectionId === 'pontusProject' && document.getElementById('pontus-exhibition').classList.contains('active-sub')) {
                     urlHash = '#' + sectionId + '-pontus-exhibition';
                 }
@@ -832,6 +948,7 @@
                     document.querySelectorAll('.project-sub-nav').forEach(nav => nav.classList.remove('visible'));
                     if (event.state.id === 'project1') document.getElementById('proj1-menu').classList.add('visible');
                     else if (event.state.id === 'project3') document.getElementById('proj3-menu').classList.add('visible');
+                    else if (event.state.id === 'project2') document.getElementById('proj2-menu').classList.add('visible');
                     else if (event.state.id === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
                     else if (event.state.id === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
 
@@ -857,7 +974,7 @@
             menuEl.querySelector('.sub-nav-btn:first-child').classList.add('active-btn');
         }
 
-        // --- Lightbox & Time functions (Unchanged) ---
+        // --- Lightbox functions (Unchanged) ---
         function openLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -869,16 +986,6 @@
             document.getElementById('lightbox').style.display = 'none';
         }
 
-        function showTime() {
-            const timeElement = document.getElementById('currentTime');
-            if (timeElement) {
-                timeElement.innerHTML = new Date().toUTCString();
-            }
-        }
-        showTime();
-        setInterval(function () {
-            showTime();
-        }, 1000);
 
         // INITIAL LOAD HANDLING
         window.onload = () => {
