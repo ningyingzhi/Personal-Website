@@ -31,7 +31,7 @@
 
             color: var(--text-color);
             font-family: var(--font-stack);
-            font-size: 15px; /* UPDATED: Changed from 14px to 15px */
+            font-size: 15px; 
             line-height: 1.5;
             margin: 0;
             padding: var(--spacing);
@@ -77,14 +77,14 @@
         /* --- INFO PAGE LAYOUT (Homepage: Seal + Short Bio) --- */
         .info-container {
             display: flex;
-            align-items: center; /* ALIGNMENT: Vertical centering of seal and text */
+            align-items: center; 
             gap: 40px;
             max-width: 900px; 
             margin: 0 auto;
         }
 
         .seal-image {
-            flex: 0 0 300px; /* SIZE: Fixed at 300px wide */
+            flex: 0 0 300px; 
             height: auto;
             display: block;
             border: none;
@@ -100,14 +100,14 @@
         /* --- NEW ARTIST STATEMENT PAGE STYLES (Full Statement: Portrait + Long Text) --- */
         .statement-container {
             display: flex;
-            align-items: flex-start; /* ALIGNMENT: Aligning image to top of text */
+            align-items: flex-start; 
             gap: 40px;
             max-width: 900px; 
             margin: 0 auto;
         }
         
         .statement-image {
-            flex: 0 0 400px; /* SIZE: Fixed at 400px wide */
+            flex: 0 0 400px; 
             max-width: 400px;
             height: auto;
             object-fit: cover;
@@ -118,7 +118,7 @@
         /* --- PROJECT INDEX GRID LAYOUT --- */
         .project-index-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 15px; 
             margin-top: 20px;
         }
@@ -159,11 +159,11 @@
         .thumbnail-title {
             color: white;
             font-family: var(--font-stack);
-            font-size: 18px;
+            font-size: 20px;
             text-transform: uppercase;
             text-align: center; 
             display: block; 
-            width: 100%; /* NEW FIX: Ensures the element takes full width for text-align: center to work on multi-line text */
+            width: 100%; 
             opacity: 0; 
             transition: opacity 0.3s ease;
             letter-spacing: 1px;
@@ -288,15 +288,15 @@
         
         /* --- NEW STYLES FOR HORIZONTAL SCREENSHOTS --- */
         .horizontal-stack .img-wrapper {
-            aspect-ratio: unset; /* Remove fixed aspect ratio */
+            aspect-ratio: unset; 
             height: auto;
-            margin-bottom: 20px; /* Spacing between horizontal images */
+            margin-bottom: 20px; 
         }
         
         .horizontal-stack .img-wrapper img {
             width: 100%;
-            height: auto; /* Allow image height to be determined naturally */
-            object-fit: contain; /* Ensure the whole wide image is visible */
+            height: auto; 
+            object-fit: contain; 
         }
 
         /* --- VERTICAL STACK --- */
@@ -323,22 +323,20 @@
 
         .caption {
             margin-bottom: 60px;
-            font-size: 12px; /* Base size for Fig number - inherited */
+            font-size: 12px; 
             color: #111;
         }
         
-        /* Specific styling for the description text within the caption */
         .caption p {
             line-height: 1.5;
             margin-top: 10px;
-            font-size: 15px; /* Set description paragraphs to 15px */
-            text-align: left; /* Ensures all description paragraphs are left-aligned */
+            font-size: 15px; 
+            text-align: left; 
         }
 
-        /* NEW RULE: Override for the first paragraph (containing Fig number) to keep it small (12px) and align right */
         .caption p:first-child {
             font-size: 12px;
-            text-align: right; /* Aligns the figure number line to the right */
+            text-align: right; 
         }
 
         .back-btn {
@@ -381,7 +379,6 @@
             body { padding: 15px; }
             header { margin-bottom: 40px; }
             
-            /* Switch grid to 1 column on mobile */
             .project-index-grid { grid-template-columns: 1fr; }
             
             .info-container, .statement-container { flex-direction: column; align-items: flex-start; gap: 30px; }
@@ -391,10 +388,8 @@
             .project-sub-nav { align-items: flex-start; gap: 10px; }
             .image-grid { grid-template-columns: 1fr; }
             
-            /* NEW MOBILE RULE: Override the right alignment to ensure all text is left-aligned on mobile */
             .caption p:first-child { text-align: left; }
             
-            /* Adjust horizontal stack on mobile */
             .horizontal-stack { padding: 0; }
         }
 
@@ -410,8 +405,8 @@
         <div class="header-left">
             <h1><a href="javascript:void(0)" onclick="showSection('info')" style="text-decoration:none; color:black;">Yingzhi Ning</a></h1>
             <nav>
-                <a href="javascript:void(0)" onclick="showSection('full-artist-statement')">ARTIST STATEMENT</a>
-                <a href="javascript:void(0)" onclick="showSection('home')">PROJECT INDEX</a>
+                <a href="javascript:void(0)" onclick="showSection('full-artist-statement')"><strong>ARTIST STATEMENT</a>
+                <a href="javascript:void(0)" onclick="showSection('home')"><strong>PROJECT INDEX</a>
             </nav>
         </div>
     </header>
@@ -475,7 +470,7 @@
             </a>
 
             <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('pontusProject')">
-                <img src="Screenshot 2025-11-22 at 9.54.13 PM.jpg" alt="Pontus Echo">
+                <img src="40468A70-E458-4823-8363-73C1D17C96FB.PNG" alt="Pontus Echo">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">PONTUS' ECHO - TANK SHANGHAI</span>
                 </div>
@@ -492,6 +487,13 @@
                 <img src="Screenshot 2025-11-26 at 5.30.20 PM.jpg" alt="Stents">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">STENTS</span>
+                </div>
+            </a>
+
+            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('thermaloProject')">
+                <img src="99804E93-6A17-4992-ADCC-848352D5BFF0.PNG" alt="Thermalo">
+                <div class="thumbnail-overlay">
+                    <span class="thumbnail-title">THERMALO</span>
                 </div>
             </a>
 
@@ -799,6 +801,58 @@
         </div>
     </section>
 
+    <section id="thermaloProject" class="project-detail">
+        <div class="back-btn" onclick="showSection('home')">&larr; Back to Project Index</div>
+        
+        <div class="project-center-group">
+            <div class="project-media-content">
+                
+                <div id="thermalo-images" class="sub-section active-sub">
+                     <video width="100%" height="auto" controls muted playsinline loop style="margin-bottom: 20px;">
+                        <source src="" type="video/mp4">
+                    </video>
+
+                    <div class="image-grid">
+                        <div class="img-wrapper"><img src="IMG_3657.JPG" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="R0005024.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="R0005025.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="R0005029.jpg" onclick="openLightbox(this.src)"></div>
+                    </div>
+                    
+                    <div class="caption">
+                        <p><strong>Fig 1-4.</strong> Product images.</p>
+                        <p><strong>Thermalo (2024 - 2025)</strong><br>
+                        <em>Teensy microcontroller, thermal camera, custom PCB, custom enclosure</em></p>
+                        <p>Thermalo is a temperature-sensitive synthesizer that turns heat into sound. A thermal camera on the back of the device collects temperature data, and the Teensy chip processes this information and updates the thermal graph on the screen in real time. The code translates the colors in the thermal graph into sound, generating different waveforms and frequencies according to colors.</p>
+                        <p>Influenced by jazz theory, the instrument gives users control over musical structure. They can choose from ten scales, twelve root notes, and adjust the tempo using the keys and knobs. A built-in speaker and an audio jack offer two output options, and additional buttons on the top corner and a third knob are reserved for future modes and functions.</p>
+                        <p>As an extension of Christoph Cox’s idea of sound as sonic flux, Thermalo treats temperature as a flowing, ever-changing material that directly shapes the instrument’s sound. Heat becomes color, and color becomes sound. It is an ongoing interaction where the surrounding environment and musical choice continuously compose the piece together.</p>
+                        <p>I worked on everything individually. </p>
+                    </div>
+                </div>
+
+                <div id="thermalo-process" class="sub-section">
+                    <div class="image-grid">
+                        <div class="img-wrapper"><img src="R0005032.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="R0005034.JPG" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="image2.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="image10.png" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="FullSizeRender.jpg" onclick="openLightbox(this.src)"></div>
+                    </div>
+                    <div class="caption">
+                        <p><strong>Fig 1-5.</strong> Documentation of PCB designs & alternative enclosure design.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-menu-wrapper">
+                <div id="thermalo-menu" class="project-sub-nav">
+                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('thermalo-images', this, 'thermaloProject')">PRODUCT IMAGES</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('thermalo-process', this, 'thermaloProject')">DESIGN & FABRICATION</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <script>
         function showSection(sectionId, pushState = true, scroll = true) {
@@ -839,6 +893,7 @@
             else if (sectionId === 'project2') document.getElementById('proj2-menu').classList.add('visible');
             else if (sectionId === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
             else if (sectionId === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
+            else if (sectionId === 'thermaloProject') document.getElementById('thermalo-menu').classList.add('visible'); // Added Thermalo Menu
 
             // Reset Sub-section states on new visit
             if (sectionId !== 'project1') resetSubSectionState('project1', 'mit-act', 'proj1-menu');
@@ -846,6 +901,7 @@
             if (sectionId !== 'project2') resetSubSectionState('project2', 'traces-exhibition', 'proj2-menu');
             if (sectionId !== 'hebeiProject') resetSubSectionState('hebeiProject', 'hebei-light', 'hebei-menu');
             if (sectionId !== 'pontusProject') resetSubSectionState('pontusProject', 'pontus-exhibition', 'pontus-menu');
+            if (sectionId !== 'thermaloProject') resetSubSectionState('thermaloProject', 'thermalo-images', 'thermalo-menu'); // Added Thermalo Reset
 
 
             // HISTORY API IMPLEMENTATION
@@ -873,6 +929,8 @@
                     urlHash = '#' + sectionId + '-' + (activeHebeiSub ? activeHebeiSub.id : 'hebei-light');
                 } else if (sectionId === 'pontusProject' && document.getElementById('pontus-exhibition').classList.contains('active-sub')) {
                     urlHash = '#' + sectionId + '-pontus-exhibition';
+                } else if (sectionId === 'thermaloProject' && document.getElementById('thermalo-images').classList.contains('active-sub')) {
+                    urlHash = '#' + sectionId + '-thermalo-images'; // Added Thermalo History
                 }
 
                 history.pushState({id: sectionId, subId: activeSub ? activeSub.id : null}, null, urlHash);
@@ -951,6 +1009,7 @@
                     else if (event.state.id === 'project2') document.getElementById('proj2-menu').classList.add('visible');
                     else if (event.state.id === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
                     else if (event.state.id === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
+                    else if (event.state.id === 'thermaloProject') document.getElementById('thermalo-menu').classList.add('visible'); // Added Thermalo Popstate
 
                 } else {
                     // Otherwise, switch the main section using the standard function
