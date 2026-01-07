@@ -5,11 +5,4 @@ body{
 	color: #5C6AC4;
 }
 
- @font-face {
-            font-family: 'VisbyRoundCF-Regular';
-            /* Make sure your font file is named 'VisbyRoundCF-Regular.otf' and is in the same folder */
-            src: url('VisbyRoundCF-Regular.otf') format('opentype'); 
-            font-weight: normal;
-            font-style: normal;
-        }
-        
+ 
