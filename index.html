@@ -455,17 +455,24 @@
     <section id="home">
         <div class="project-index-grid">
             
+            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('blaProject')">
+                <img src="77254ca13e9b02777ea65a45cef8ed49.jpg" alt="BLA-01 Hi-Fi Speakers">
+                <div class="thumbnail-overlay">
+                    <span class="thumbnail-title">BLA-01 HI-FI SPEAKERS</span>
+                </div>
+            </a>
+
+            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('thermaloProject')">
+                <img src="99804E93-6A17-4992-ADCC-848352D5BFF0.PNG" alt="Thermalo">
+                <div class="thumbnail-overlay">
+                    <span class="thumbnail-title">THERMALO</span>
+                </div>
+            </a>
+
             <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('project3')">
                 <img src="Screenshot 2025-11-26 at 5.30.20 PM.jpg" alt="Stents">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">STENTS</span>
-                </div>
-            </a>
-
-            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('project1')">
-                <img src="a3e6044174943588bc1776341ae2ce2d.jpg" alt="She Swims in Silence">
-                <div class="thumbnail-overlay">
-                    <span class="thumbnail-title">SHE SWIMS IN SILENCE - MIT</span>
                 </div>
             </a>
 
@@ -476,17 +483,17 @@
                 </div>
             </a>
 
+            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('project1')">
+                <img src="a3e6044174943588bc1776341ae2ce2d.jpg" alt="She Swims in Silence">
+                <div class="thumbnail-overlay">
+                    <span class="thumbnail-title">SHE SWIMS IN SILENCE - MIT</span>
+                </div>
+            </a>
+
             <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('hebeiProject')">
                 <img src="Screenshot 2025-11-22 at 9.57.45 PM.jpg" alt="Hebei Resonance">
                 <div class="thumbnail-overlay">
                     <span class="thumbnail-title">RESOnance - HEBEI PROVINCIAL MUSEUM</span>
-                </div>
-            </a>
-
-            <a href="javascript:void(0)" class="project-thumbnail" onclick="showSection('thermaloProject')">
-                <img src="99804E93-6A17-4992-ADCC-848352D5BFF0.PNG" alt="Thermalo">
-                <div class="thumbnail-overlay">
-                    <span class="thumbnail-title">THERMALO</span>
                 </div>
             </a>
 
@@ -856,6 +863,56 @@
     </section>
 
 
+    <section id="blaProject" class="project-detail">
+        <div class="back-btn" onclick="showSection('home')">&larr; Back to Project Index</div>
+        
+        <div class="project-center-group">
+            <div class="project-media-content">
+                
+                <div id="bla-exhibition" class="sub-section active-sub">
+                    <img src="fe74747776596bd4583be78c9b69360c.jpg" class="top-media-img" onclick="openLightbox(this.src)" alt="BLA-01 Main">
+
+                    <div class="image-grid">
+                        <div class="img-wrapper"><img src="77254ca13e9b02777ea65a45cef8ed49.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="d23f2f80296fd57eb6cf2aa468cf6b31.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="49d6a9fd4131f0e4bf453d4afebfbf4f.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="c033eecc869add1337b0a13e0475750e.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="8dfc3455fe69cf996157b02ee86ff28b.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="fab7cfbaa6a1539df5d2a64ce3397e51.jpg" onclick="openLightbox(this.src)"></div>
+                    </div>
+                    
+                    <div class="caption">
+                        <p><strong>Fig 1-7.</strong> Exhibition views.</p>
+                        <p><strong>BLA-01 Hi-Fi Speakers (2026)</strong><br>
+                        <em>Baltic birch enclosures, JBL 2226H low frequency transducers, JBL 2446H compression drivers, 2-way passive crossover circuit, hand-painted finish</em></p>
+                        <p>Commissioned by David Sonubi (Better Listening studio) for Ace Hotel Brooklyn, the BLA-01 Hi-Fi Speakers are a collaborative effort. Together with my partners Brian Suber and Xavier Sang, I designed the crossover circuit and acoustic treatment, and fabricated the speakers.</p>
+                        <p>The BLA-01 speakers measure 70 cm x 65 cm x 45 cm. They are crafted from sustainable Baltic birch and hand-painted by New York-based artist Quiana Parks. The sound system is powered by JBL 2226H low frequency transducers and JBL 2446H compression drivers, joined by a custom 2-way passive crossover circuit.</p>
+                    </div>
+                </div>
+
+                <div id="bla-process" class="sub-section">
+                    <div class="image-grid">
+                        <div class="img-wrapper"><img src="5382ff0678a7cf86066e7708f7196c6d.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="0e7abf67ae7dbbf4f0fbb5482b89d4f6.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="23196126a009c73aea83f69ed7844056.jpg" onclick="openLightbox(this.src)"></div>
+                        <div class="img-wrapper"><img src="7b3cba3c4042af788ccdc4d6a7c3536f.jpg" onclick="openLightbox(this.src)"></div>
+                    </div>
+                    <div class="caption">
+                        <p><strong>Fig 1-4.</strong> Circuit design and fabrication process.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-menu-wrapper">
+                <div id="bla-menu" class="project-sub-nav">
+                    <button class="sub-nav-btn active-btn" onclick="switchSubSection('bla-exhibition', this, 'blaProject')">EXHIBITION PHOTOS</button>
+                    <button class="sub-nav-btn" onclick="switchSubSection('bla-process', this, 'blaProject')">DESIGN & FABRICATION</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <script>
         function showSection(sectionId, pushState = true, scroll = true) {
             // Hide all
@@ -896,6 +953,7 @@
             else if (sectionId === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
             else if (sectionId === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
             else if (sectionId === 'thermaloProject') document.getElementById('thermalo-menu').classList.add('visible'); // Added Thermalo Menu
+            else if (sectionId === 'blaProject') document.getElementById('bla-menu').classList.add('visible');
 
             // Reset Sub-section states on new visit
             if (sectionId !== 'project1') resetSubSectionState('project1', 'mit-act', 'proj1-menu');
@@ -904,6 +962,7 @@
             if (sectionId !== 'hebeiProject') resetSubSectionState('hebeiProject', 'hebei-light', 'hebei-menu');
             if (sectionId !== 'pontusProject') resetSubSectionState('pontusProject', 'pontus-exhibition', 'pontus-menu');
             if (sectionId !== 'thermaloProject') resetSubSectionState('thermaloProject', 'thermalo-images', 'thermalo-menu'); // Added Thermalo Reset
+            if (sectionId !== 'blaProject') resetSubSectionState('blaProject', 'bla-exhibition', 'bla-menu');
 
 
             // HISTORY API IMPLEMENTATION
@@ -933,6 +992,8 @@
                     urlHash = '#' + sectionId + '-pontus-exhibition';
                 } else if (sectionId === 'thermaloProject' && document.getElementById('thermalo-images').classList.contains('active-sub')) {
                     urlHash = '#' + sectionId + '-thermalo-images'; // Added Thermalo History
+                } else if (sectionId === 'blaProject' && document.getElementById('bla-exhibition').classList.contains('active-sub')) {
+                    urlHash = '#' + sectionId + '-bla-exhibition';
                 }
 
                 history.pushState({id: sectionId, subId: activeSub ? activeSub.id : null}, null, urlHash);
@@ -1012,6 +1073,7 @@
                     else if (event.state.id === 'hebeiProject') document.getElementById('hebei-menu').classList.add('visible');
                     else if (event.state.id === 'pontusProject') document.getElementById('pontus-menu').classList.add('visible');
                     else if (event.state.id === 'thermaloProject') document.getElementById('thermalo-menu').classList.add('visible'); // Added Thermalo Popstate
+                    else if (event.state.id === 'blaProject') document.getElementById('bla-menu').classList.add('visible');
 
                 } else {
                     // Otherwise, switch the main section using the standard function
